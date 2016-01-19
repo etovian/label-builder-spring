@@ -32,3 +32,6 @@ dist/
 Icon\r\r
 Icon
 .DS_Store
+
+# jar files
+*.jar
