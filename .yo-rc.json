@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "labelBuilder",
+    "packageName": "com.nutracorp.labelbuilder",
+    "packageFolder": "com/nutracorp/labelbuilder",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "gulp",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "d017c34c2a30ac0795f99dadb7302f833a7e8ba8",
+    "testFrameworks": [
+      "protractor"
+    ]
+  }
+}
