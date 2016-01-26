@@ -1,4 +1,4 @@
-'use strict';
+    'use strict';
 
 angular.module('labelbuilderApp')
     .factory('User', function ($resource) {
