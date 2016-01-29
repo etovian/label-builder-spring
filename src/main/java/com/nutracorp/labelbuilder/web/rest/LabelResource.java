@@ -2,6 +2,7 @@ package com.nutracorp.labelbuilder.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.nutracorp.labelbuilder.domain.Label;
+import com.nutracorp.labelbuilder.security.AuthoritiesConstants;
 import com.nutracorp.labelbuilder.service.LabelService;
 import com.nutracorp.labelbuilder.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -26,10 +28,10 @@ import java.util.Optional;
 public class LabelResource {
 
     private final Logger log = LoggerFactory.getLogger(LabelResource.class);
-        
+
     @Inject
     private LabelService labelService;
-    
+
     /**
      * POST  /labels -> Create a new label.
      */
@@ -102,6 +104,7 @@ public class LabelResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteLabel(@PathVariable Long id) {
         log.debug("REST request to delete Label : {}", id);
         labelService.delete(id);
