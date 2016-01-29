@@ -30,5 +30,5 @@ public interface LabelService {
     /**
      *  delete the "id" label.
      */
-    public void delete(Long id);
+    public Label delete(Long id);
 }

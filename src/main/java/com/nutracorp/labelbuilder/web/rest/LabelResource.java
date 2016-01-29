@@ -107,7 +107,8 @@ public class LabelResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteLabel(@PathVariable Long id) {
         log.debug("REST request to delete Label : {}", id);
-        labelService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("label", id.toString())).build();
+        Label label = labelService.delete(id);
+        String param = label.getProductName() + ", Product ID " + label.getProductId().toString();
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("label", param)).build();
     }
 }

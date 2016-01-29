@@ -20,10 +20,10 @@ import java.util.Optional;
 public class LabelServiceImpl implements LabelService{
 
     private final Logger log = LoggerFactory.getLogger(LabelServiceImpl.class);
-    
+
     @Inject
     private LabelRepository labelRepository;
-    
+
     /**
      * Save a label.
      * @return the persisted entity
@@ -38,7 +38,7 @@ public class LabelServiceImpl implements LabelService{
      *  get all the labels.
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public List<Label> findAll() {
         log.debug("Request to get all Labels");
         List<Label> result = labelRepository.findAll();
@@ -49,7 +49,7 @@ public class LabelServiceImpl implements LabelService{
      *  get one label by id.
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Label findOne(Long id) {
         log.debug("Request to get Label : {}", id);
         Label label = labelRepository.findOne(id);
@@ -59,8 +59,10 @@ public class LabelServiceImpl implements LabelService{
     /**
      *  delete the  label by id.
      */
-    public void delete(Long id) {
+    public Label delete(Long id) {
         log.debug("Request to delete Label : {}", id);
+        Label label = labelRepository.findOne(id);
         labelRepository.delete(id);
+        return label;
     }
 }
