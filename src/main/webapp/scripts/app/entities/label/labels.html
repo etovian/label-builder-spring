@@ -1,12 +1,13 @@
 <div>
     <h2>Labels</h2>
+    <jh-alert-error></jh-alert-error>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="label.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
+                    <span
                        >Create new Label
                     </span>
                 </button>
@@ -61,7 +62,7 @@
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="label.detail({id:label.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
@@ -72,8 +73,9 @@
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
+                                    has-authority="ROLE_ADMIN"
                                     ui-sref="label.delete({id:label.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
