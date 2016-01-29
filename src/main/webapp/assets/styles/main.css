@@ -149,12 +149,13 @@ Custom alerts for notification
 }
 
 .alerts .toast.bottom {
-    bottom: 55px;
+    bottom: 25px;
 }
 
 @media screen and (min-width: 480px) {
     .alerts .toast {
-        width: 50%;
+        /*width: 50%;*/
+        width: 400px;
     }
 }
 

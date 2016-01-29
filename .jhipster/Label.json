@@ -1,0 +1,89 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "productId",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "versionMajor",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "versionMinor",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "created",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "discussion",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "contentCount",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "servingSize",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "deliveryForm",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "dosageConsistency",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "genericDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "upc",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "warning",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "directions",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "refrigerated",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "isPeelOff",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20160129140359",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "no"
+}

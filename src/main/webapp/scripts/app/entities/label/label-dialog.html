@@ -1,0 +1,124 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myLabelLabel">Create or edit a Label</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="label.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_productId">ProductId</label>
+            <input type="text" class="form-control" name="productId" id="field_productId"
+                    ng-model="label.productId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_versionMajor">VersionMajor</label>
+            <input type="text" class="form-control" name="versionMajor" id="field_versionMajor"
+                    ng-model="label.versionMajor"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_versionMinor">VersionMinor</label>
+            <input type="text" class="form-control" name="versionMinor" id="field_versionMinor"
+                    ng-model="label.versionMinor"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_created">Created</label>
+            <input id="field_created" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="label.created" is-open="datePickerForCreated.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForCreatedOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_discussion">Discussion</label>
+            <input type="text" class="form-control" name="discussion" id="field_discussion"
+                    ng-model="label.discussion"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_productName">ProductName</label>
+            <input type="text" class="form-control" name="productName" id="field_productName"
+                    ng-model="label.productName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_contentCount">ContentCount</label>
+            <input type="text" class="form-control" name="contentCount" id="field_contentCount"
+                    ng-model="label.contentCount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_servingSize">ServingSize</label>
+            <input type="text" class="form-control" name="servingSize" id="field_servingSize"
+                    ng-model="label.servingSize"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_deliveryForm">DeliveryForm</label>
+            <input type="text" class="form-control" name="deliveryForm" id="field_deliveryForm"
+                    ng-model="label.deliveryForm"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dosageConsistency">DosageConsistency</label>
+            <input type="text" class="form-control" name="dosageConsistency" id="field_dosageConsistency"
+                    ng-model="label.dosageConsistency"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_genericDescription">GenericDescription</label>
+            <input type="text" class="form-control" name="genericDescription" id="field_genericDescription"
+                    ng-model="label.genericDescription"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_upc">Upc</label>
+            <input type="text" class="form-control" name="upc" id="field_upc"
+                    ng-model="label.upc"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_warning">Warning</label>
+            <input type="text" class="form-control" name="warning" id="field_warning"
+                    ng-model="label.warning"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_directions">Directions</label>
+            <input type="text" class="form-control" name="directions" id="field_directions"
+                    ng-model="label.directions"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_refrigerated">Refrigerated</label>
+            <input type="text" class="form-control" name="refrigerated" id="field_refrigerated"
+                    ng-model="label.refrigerated"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_isPeelOff">IsPeelOff</label>
+            <input type="checkbox" class="form-control" name="isPeelOff" id="field_isPeelOff"
+                    ng-model="label.isPeelOff"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
