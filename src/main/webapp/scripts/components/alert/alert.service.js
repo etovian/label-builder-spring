@@ -2,7 +2,7 @@
 
 angular.module('labelbuilderApp')
     .provider('AlertService', function () {
-        this.toast = false;
+        this.toast = true;
 
         this.$get = ['$timeout', '$sce', function($timeout, $sce) {
 
@@ -19,7 +19,7 @@ angular.module('labelbuilderApp')
                 info: info,
                 warning : warning
             },
-            
+
             toast = this.toast,
             alertId = 0, // unique id for each alert. Starts from 0.
             alerts = [],
@@ -88,7 +88,7 @@ angular.module('labelbuilderApp')
                     id: alertOptions.alertId,
                     timeout: alertOptions.timeout,
                     toast: alertOptions.toast,
-                    position: alertOptions.position ? alertOptions.position : 'top right',
+                    position: alertOptions.position ? alertOptions.position : 'bottom right',
                     scoped: alertOptions.scoped,
                     close: function (alerts) {
                         return exports.closeAlert(this.id, alerts);
