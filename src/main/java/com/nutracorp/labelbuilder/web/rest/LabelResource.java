@@ -7,7 +7,6 @@ import com.nutracorp.labelbuilder.service.LabelService;
 import com.nutracorp.labelbuilder.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -110,5 +109,20 @@ public class LabelResource {
         Label label = labelService.delete(id);
         String param = label.getProductName() + ", Product ID " + label.getProductId().toString();
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("label", param)).build();
+    }
+
+    /**
+     * GET /labels/json
+     */
+    @RequestMapping(value = "/labels/json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Secured((AuthoritiesConstants.ADMIN))
+    public ResponseEntity<Void> importJson() {
+        log.debug("importing json label data");
+        try {
+            labelService.importJsonData();
+            return ResponseEntity.ok().build();
+        } catch (Exception ex) {
+            return ResponseEntity.unprocessableEntity().headers(HeaderUtil.createFailureAlert("label", "errorKey", "Could not import data")).build();
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.nutracorp.labelbuilder.service;
 
 import com.nutracorp.labelbuilder.domain.Label;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -31,4 +32,9 @@ public interface LabelService {
      *  delete the "id" label.
      */
     public Label delete(Long id);
+
+    /**
+     * import json data
+     */
+    public void importJsonData() throws IOException;
 }
