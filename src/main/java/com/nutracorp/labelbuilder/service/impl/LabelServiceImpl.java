@@ -1,16 +1,20 @@
 package com.nutracorp.labelbuilder.service.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nutracorp.labelbuilder.service.LabelService;
 import com.nutracorp.labelbuilder.domain.Label;
 import com.nutracorp.labelbuilder.repository.LabelRepository;
+import org.hibernate.exception.GenericJDBCException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.util.List;
-import java.util.Optional;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Service Implementation for managing Label.
@@ -63,6 +67,56 @@ public class LabelServiceImpl implements LabelService{
         log.debug("Request to delete Label : {}", id);
         Label label = labelRepository.findOne(id);
         labelRepository.delete(id);
+        return label;
+    }
+
+    /**
+     * import json data
+     */
+    @Transactional
+    public void importJsonData() throws IOException {
+        log.debug("importing json label data");
+        String path = "/Users/michaelgreen/dev/clients/nutraceutical/label-builder/src/dev-data/existing.labels.summary.json";
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File(path);
+        Map<String, Object> map = mapper.readValue(file, Map.class);
+        List<Label> labels = buildEntitiesFrom(map);
+        Iterator<Label> iterator = labels.iterator();
+        int i = 0;
+        while(iterator.hasNext() && (i < 600)) {
+            i++;
+            Label label = iterator.next();
+            try {
+                labelRepository.saveAndFlush(label);
+            } catch (Exception ex) {
+                log.debug("Could not save label " + label.getProductId().toString(), ex);
+            }
+        }
+    }
+
+    public List<Label> buildEntitiesFrom(Map<String, Object> map) {
+
+        List<Label> labels = new ArrayList<>();
+        Map<String, Object> existingLabels = (Map) map.get("existing-labels");
+        List<Map<String, Object>> labelMaps = (List) existingLabels.get("label");
+        Iterator<Map<String, Object>> iterator = labelMaps.iterator();
+        while(iterator.hasNext()) {
+            Map<String, Object> labelMap = iterator.next();
+            Label entity = buildEntityFrom(labelMap);
+            labels.add(entity);
+        }
+
+        return labels;
+    }
+
+    public Label buildEntityFrom(Map<String, Object> map) {
+
+        Label label = new Label();
+        label.setProductId(map.get("itemCode").toString());
+        label.setVersionMajor(map.get("versionMajor").toString());
+        label.setVersionMinor(map.get("versionMinor").toString());
+        label.setProductName(map.get("productName").toString());
+
         return label;
     }
 }

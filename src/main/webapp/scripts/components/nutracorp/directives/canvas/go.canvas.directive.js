@@ -47,7 +47,7 @@
                             angular.extend(image, {
                                 width: 250,
                                 height: 250,
-                                source: 'src/app/client/images/4022083-250cc.png',
+                                source: 'assets/images/labels/4022083-250cc.png',
                                 row: 0,
                                 column: 0
                             });
@@ -192,7 +192,7 @@
             scope: {
                 nutraLabel: '='
             },
-            templateUrl: 'directives/go.canvas.html',
+            templateUrl: 'scripts/components/nutracorp/directives/canvas/go.canvas.html',
             controller: controller,
             controllerAs: 'vm',
             bindToController: true,
@@ -201,5 +201,5 @@
         };
     }
 
-    angular.module('app').directive('goCanvas', [GoCanvasDirective]);
+    angular.module('nutracorp.directives').directive('goCanvas', [GoCanvasDirective]);
 }());

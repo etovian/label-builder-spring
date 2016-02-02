@@ -3,7 +3,7 @@
     'use strict';
 
     function CanvasToolbarDirectiveController ($aside) {
-
+        var templatePath = 'scripts/components/nutracorp/directives/canvas/';
         var vm = this;
         angular.extend(vm, {
 
@@ -16,7 +16,7 @@
             },
             openEditInformationModal: function () {
                 var opts = {
-                    templateUrl: 'templates/' + 'edit.information.html',
+                    templateUrl: templatePath + 'edit.information.html',
                     controller: 'EditInformationController',
                     controllerAs: 'vm',
                     placement: 'right',
@@ -27,7 +27,7 @@
             },
             openFontColorsModal: function () {
                 var opts = {
-                    templateUrl: 'templates/' + 'font.colors.html',
+                    templateUrl: templatePath + 'font.colors.html',
                     controller: 'FontColorsController',
                     controllerAs: 'vm',
                     placement: 'right',
@@ -38,7 +38,7 @@
             },
             openFontSizesModal: function () {
                 var opts = {
-                    templateUrl: 'templates/' + 'font.sizes.html',
+                    templateUrl: templatePath + 'font.sizes.html',
                     controller: 'FontSizesController',
                     controllerAs: 'vm',
                     placement: 'right',
