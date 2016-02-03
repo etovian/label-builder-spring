@@ -4,6 +4,14 @@ angular.module('labelbuilderApp')
     .factory('Label', function ($resource, DateUtils) {
         return $resource('api/labels/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'search': {
+                method: 'GET',
+                isArray: true,
+                params: {
+                    type: '@type',
+                    active: '@active'
+                }
+            },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -74,10 +74,10 @@ public class LabelResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Label> getAllLabels() {
+    public List<Label> getAllLabels(@RequestParam(value = "approved", required = false) Boolean approved, @RequestParam(value = "type", required = false) String type) {
         log.debug("REST request to get all Labels");
         return labelService.findAll();
-            }
+    }
 
     /**
      * GET  /labels/:id -> get the "id" label.

@@ -4,7 +4,11 @@ angular.module('labelbuilderApp')
     .controller('LabelController', function ($scope, $state, Label) {
 
         var vm = angular.extend(this, {
-            greeting: 'Howdy!',
+            deleteSelectedLabel: function() {
+                Label.delete({id: vm.selectedLabelSummary.id})
+                    .$promise.then(vm.search);
+
+            },
             gridOptions: {
                 columnDefs: [ //https://github.com/angular-ui/ui-grid/wiki/Defining-columns
                     {
@@ -49,21 +53,30 @@ angular.module('labelbuilderApp')
                     vm.gridApi = gridApi;
                     gridApi.selection.on.rowSelectionChanged(null, function(row) {
                         console.log(row.entity);
-                        $state.go('label.detail', {id: row.entity.id});
+                        //$state.go('label.detail', {id: row.entity.id});
+                        vm.selectedLabelSummary = row.entity;
                     });
                 }
             },
             labels: [],
-            loadAll: function() {
-                Label.query(function(result) {
+            navigateToSelectedLabel: function() {
+                $state.go('label.detail', {id: vm.selectedLabelSummary.id});
+            },
+            search: function() {
+                Label.search(vm.searchCriteria, function(result) {
                     vm.gridOptions.data = result;
                 })
             },
             refresh: function() {
-                vm.loadAll();
+                vm.search();
 
-            }
+            },
+            searchCriteria: {
+                type: "active",
+                approved: false
+            },
+            selectedLabelSummary: null
         });
 
-        vm.loadAll();
+        vm.search();
     });
