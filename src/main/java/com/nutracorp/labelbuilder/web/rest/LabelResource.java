@@ -125,4 +125,37 @@ public class LabelResource {
             return ResponseEntity.unprocessableEntity().headers(HeaderUtil.createFailureAlert("label", "errorKey", "Could not import data")).build();
         }
     }
+
+    /**
+     * GET /labels/productId/{productId}
+     */
+    @RequestMapping(value = "/labels/productId/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Secured(AuthoritiesConstants.USER)
+    public ResponseEntity<Label> getLabelByProductId(@PathVariable String productId) {
+        log.debug("REST request to get label by productId : {}", productId);
+        Label label = labelService.findByProductId(productId);
+        if(label == null) {
+            return ResponseEntity.ok().body(new Label());
+        } else {
+            return Optional.of(label)
+                .map(result -> new ResponseEntity<>(
+                    result,
+                    HttpStatus.OK))
+                .orElse(ResponseEntity.ok(new Label()));
+        }
+    }
+
+    /**
+     * POST /labels/productId/{productId}
+     */
+    @RequestMapping(value = "/labels/productId", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    @Secured(AuthoritiesConstants.USER)
+    public ResponseEntity<Label> createByProductId(@RequestBody String productId) throws URISyntaxException {
+        Label result = labelService.createByProductId(productId);
+        return ResponseEntity.created(new URI("/api/labels/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("label", result.getId().toString()))
+            .body(result);
+    }
 }

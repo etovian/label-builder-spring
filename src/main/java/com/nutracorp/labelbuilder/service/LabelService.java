@@ -14,27 +14,37 @@ public interface LabelService {
      * Save a label.
      * @return the persisted entity
      */
-    public Label save(Label label);
+    Label save(Label label);
 
     /**
      *  get all the labels.
      *  @return the list of entities
      */
-    public List<Label> findAll();
+    List<Label> findAll();
 
     /**
      *  get the "id" label.
      *  @return the entity
      */
-    public Label findOne(Long id);
+    Label findOne(Long id);
 
     /**
      *  delete the "id" label.
      */
-    public Label delete(Long id);
+    Label delete(Long id);
 
     /**
      * import json data
      */
-    public void importJsonData() throws IOException;
+    void importJsonData() throws IOException;
+
+    /**
+     *  get a label by product id
+     */
+    Label findByProductId(String productId);
+
+    /**
+     * create a label from a product id
+     */
+    Label createByProductId(String productId);
 }

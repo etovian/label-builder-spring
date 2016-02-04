@@ -12,6 +12,16 @@ angular.module('labelbuilderApp')
                     active: '@active'
                 }
             },
+            'getByProductId': {
+                url: 'api/labels/productId/:productId',
+                method: 'GET',
+                isArray: false
+            },
+            'createByProductId': {
+                url: 'api/labels/productId/',
+                method: 'POST',
+                isArray: false
+            },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
