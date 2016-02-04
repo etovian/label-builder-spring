@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <p>{{ vm.message }}</p>
+        <div class="col-md-8">
+            <div class="alert alert-danger">
+                <p>{{ vm.message }}</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="btn-group">
-                <button class="btn btn-danger">Cancel</button>
-                <button class="btn btn-default">Confirm</button>
+        <div class="col-md-4">
+            <div class="btn-group pull-right">
+                <button ng-click="vm.cancel()" class="btn btn-danger">Cancel</button>
+                <button ng-click="vm.confirm()" class="btn btn-default">Confirm</button>
             </div>
         </div>
     </div>

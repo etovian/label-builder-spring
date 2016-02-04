@@ -7,15 +7,15 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="" class="form-inline">
+            <form class="form-inline">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">
                             Item Code:
                         </div>
-                        <input ng-model="vm.itemCode" type="text" class="form-control"/>
+                        <input ng-model="vm.productId" type="text" class="form-control"/>
 						<span class="input-group-btn">
-							<button ng-click="vm.navigateByItemCode()" class="btn btn-default">
+							<button ng-click="vm.createOrOpenByProductId()" class="btn btn-default">
                                 Create / Open
                             </button>
 						</span>
@@ -79,9 +79,11 @@
         </div>
         <div class="col-md-6">
             <div ng-if="vm.selectedLabelSummary" class="btn-group pull-right">
-                <button ng-click="vm.deleteSelectedLabel()" class="btn btn-default">Delete</button>
+                <button ng-click="vm.confirmDeleteSelectedLabel()" class="btn btn-default">Delete</button>
                 <button ng-click="vm.navigateToSelectedLabel()" class="btn btn-default">Open</button>
             </div>
         </div>
     </div>
+    <jh-alert-error></jh-alert-error>
+    <jh-alert></jh-alert>
 </div>

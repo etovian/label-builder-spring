@@ -1,13 +1,19 @@
-'use strict';
+(function() {
+    'use strict';
 
-angular.module('labelbuilderApp')
-    .controller('LabelController', function ($scope, $state, Label) {
+    function LabelController($state, ConfirmationService, Label) {
 
         var vm = angular.extend(this, {
+            confirmDeleteSelectedLabel: function() {
+                ConfirmationService.getConfirmation('Are you sure you wish to delete this label?')
+                    .then(vm.deleteSelectedLabel);
+            },
+            createOrOpenByProductId: function() {
+                console.log('howdy!');
+            },
             deleteSelectedLabel: function() {
                 Label.delete({id: vm.selectedLabelSummary.id})
                     .$promise.then(vm.search);
-
             },
             gridOptions: {
                 columnDefs: [ //https://github.com/angular-ui/ui-grid/wiki/Defining-columns
@@ -52,31 +58,35 @@ angular.module('labelbuilderApp')
                 onRegisterApi: function(gridApi) {
                     vm.gridApi = gridApi;
                     gridApi.selection.on.rowSelectionChanged(null, function(row) {
-                        console.log(row.entity);
-                        //$state.go('label.detail', {id: row.entity.id});
                         vm.selectedLabelSummary = row.entity;
                     });
                 }
             },
-            labels: [],
             navigateToSelectedLabel: function() {
                 $state.go('label.detail', {id: vm.selectedLabelSummary.id});
             },
+            productId: null,
             search: function() {
-                Label.search(vm.searchCriteria, function(result) {
-                    vm.gridOptions.data = result;
-                })
-            },
-            refresh: function() {
-                vm.search();
-
+                Label.search(vm.searchCriteria, vm.setGridData);
             },
             searchCriteria: {
                 type: "active",
                 approved: false
             },
-            selectedLabelSummary: null
+            selectedLabelSummary: null,
+            setGridData: function(data) {
+                vm.gridOptions.data = data;
+            }
         });
 
         vm.search();
-    });
+    }
+
+    var deps = [
+        '$state',
+        'ConfirmationService',
+        'Label',
+        LabelController
+    ];
+    angular.module('labelbuilderApp').controller('LabelController', deps);
+}());
