@@ -8,6 +8,8 @@ import org.hibernate.exception.GenericJDBCException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -92,6 +94,20 @@ public class LabelServiceImpl implements LabelService{
                 log.debug("Could not save label " + label.getProductId().toString(), ex);
             }
         }
+    }
+
+    public Label findByProductId(String productId) {
+        return labelRepository.findByProductId(productId);
+    }
+
+    public Label createByProductId(String productId) {
+
+        Label label = new Label();
+        label.setProductId(productId);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userName = auth.getName();
+        label.setProductName("New Label Created By " + userName);
+        return labelRepository.save(label);
     }
 
     public List<Label> buildEntitiesFrom(Map<String, Object> map) {

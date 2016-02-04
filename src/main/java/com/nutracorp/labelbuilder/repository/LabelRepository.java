@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface LabelRepository extends JpaRepository<Label,Long> {
 
+    Label findByProductId(String productId);
 }

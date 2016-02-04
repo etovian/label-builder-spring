@@ -9,7 +9,19 @@
                     .then(vm.deleteSelectedLabel);
             },
             createOrOpenByProductId: function() {
-                console.log('howdy!');
+                Label.getByProductId({productId: vm.productId}, function(existingLabel) {
+                    if(existingLabel.id) {
+                        $state.go('label.detail', {id: existingLabel.id});
+                    } else {
+                        var message = 'No label found with product ID ' + vm.productId + '.  Would you like to create one?';
+                        ConfirmationService.getConfirmation(message)
+                            .then(function() {
+                                Label.createByProductId(vm.productId, function(newLabel) {
+                                    $state.go('label.detail', {id: newLabel.id})
+                                })
+                            });
+                    }
+                });
             },
             deleteSelectedLabel: function() {
                 Label.delete({id: vm.selectedLabelSummary.id})
