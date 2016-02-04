@@ -4,12 +4,12 @@ angular.module('labelbuilderApp')
     .controller('UserManagementController', function ($scope, Principal, User, ParseLinks) {
         $scope.users = [];
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
-		
+
 		Principal.identity().then(function(account) {
             $scope.currentAccount = account;
         });
         $scope.page = 1;
-        $scope.loadAll = function () {
+        $scope.search = function () {
             User.query({page: $scope.page - 1, size: 20}, function (result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.totalItems = headers('X-Total-Count');
@@ -19,14 +19,14 @@ angular.module('labelbuilderApp')
 
         $scope.loadPage = function (page) {
             $scope.page = page;
-            $scope.loadAll();
+            $scope.search();
         };
-        $scope.loadAll();
+        $scope.search();
 
         $scope.setActive = function (user, isActivated) {
             user.activated = isActivated;
             User.update(user, function () {
-                $scope.loadAll();
+                $scope.search();
                 $scope.clear();
             });
         };
