@@ -80,7 +80,7 @@ gulp.task('protractor', function() {
 });
 
 gulp.task('copy', function() {
-    return es.merge( 
+    return es.merge(
         gulp.src(yeoman.app + 'assets/**/*.{woff,svg,ttf,eot}').
         pipe(flatten()).
         pipe(gulp.dest(yeoman.dist + 'assets/fonts/')));
