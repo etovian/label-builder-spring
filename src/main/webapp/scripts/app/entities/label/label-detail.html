@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <go-canvas></go-canvas>
+            <go-canvas nutra-label="vm.label"></go-canvas>
         </div>
     </div>
 </div>
 <div>
-    <h2><span>{{ label.productName }}:</span> {{label.productId}}</h2>
+    <h2><span>{{ vm.label.productName }}:</span> {{vm.label.productId}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -21,7 +21,7 @@
                     <span>ProductId</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.productId}}</span>
+                    <span class="form-control-static">{{vm.label.productId}}</span>
                 </td>
             </tr>
             <tr>
@@ -29,7 +29,7 @@
                     <span>VersionMajor</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.versionMajor}}</span>
+                    <span class="form-control-static">{{vm.label.versionMajor}}</span>
                 </td>
             </tr>
             <tr>
@@ -37,7 +37,7 @@
                     <span>VersionMinor</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.versionMinor}}</span>
+                    <span class="form-control-static">{{vm.label.versionMinor}}</span>
                 </td>
             </tr>
             <tr>
@@ -45,7 +45,7 @@
                     <span>Created</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.created | date:'mediumDate'}}</span>
+                    <span class="form-control-static">{{vm.label.created | date:'mediumDate'}}</span>
                 </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@
                     <span>Discussion</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.discussion}}</span>
+                    <span class="form-control-static">{{vm.label.discussion}}</span>
                 </td>
             </tr>
             <tr>
@@ -61,7 +61,7 @@
                     <span>ProductName</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.productName}}</span>
+                    <span class="form-control-static">{{vm.label.productName}}</span>
                 </td>
             </tr>
             <tr>
@@ -69,7 +69,7 @@
                     <span>ContentCount</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.contentCount}}</span>
+                    <span class="form-control-static">{{vm.label.contentCount}}</span>
                 </td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@
                     <span>ServingSize</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.servingSize}}</span>
+                    <span class="form-control-static">{{vm.label.servingSize}}</span>
                 </td>
             </tr>
             <tr>
@@ -85,7 +85,7 @@
                     <span>DeliveryForm</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.deliveryForm}}</span>
+                    <span class="form-control-static">{{vm.label.deliveryForm}}</span>
                 </td>
             </tr>
             <tr>
@@ -93,7 +93,7 @@
                     <span>DosageConsistency</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.dosageConsistency}}</span>
+                    <span class="form-control-static">{{vm.label.dosageConsistency}}</span>
                 </td>
             </tr>
             <tr>
@@ -101,7 +101,7 @@
                     <span>GenericDescription</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.genericDescription}}</span>
+                    <span class="form-control-static">{{vm.label.genericDescription}}</span>
                 </td>
             </tr>
             <tr>
@@ -109,7 +109,7 @@
                     <span>Upc</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.upc}}</span>
+                    <span class="form-control-static">{{vm.label.upc}}</span>
                 </td>
             </tr>
             <tr>
@@ -117,7 +117,7 @@
                     <span>Warning</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.warning}}</span>
+                    <span class="form-control-static">{{vm.label.warning}}</span>
                 </td>
             </tr>
             <tr>
@@ -125,7 +125,7 @@
                     <span>Directions</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.directions}}</span>
+                    <span class="form-control-static">{{vm.label.directions}}</span>
                 </td>
             </tr>
             <tr>
@@ -133,7 +133,7 @@
                     <span>Refrigerated</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.refrigerated}}</span>
+                    <span class="form-control-static">{{vm.label.refrigerated}}</span>
                 </td>
             </tr>
             <tr>
@@ -141,16 +141,14 @@
                     <span>IsPeelOff</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{label.isPeelOff}}</span>
+                    <span class="form-control-static">{{vm.label.isPeelOff}}</span>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
 
-    <button type="submit"
-            onclick="window.history.back()"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
-    </button>
+    <jh-alert-error></jh-alert-error>
+    <jh-alert></jh-alert>
+
 </div>

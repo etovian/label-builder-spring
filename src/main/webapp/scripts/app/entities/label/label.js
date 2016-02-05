@@ -30,7 +30,8 @@ angular.module('labelbuilderApp')
                 views: {
                     'content@': {
                         templateUrl: 'scripts/app/entities/label/label-detail.html',
-                        controller: 'LabelDetailController'
+                        controller: 'LabelDetailController',
+                        controllerAs: 'vm'
                     }
                 },
                 resolve: {

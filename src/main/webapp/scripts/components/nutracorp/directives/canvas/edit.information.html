@@ -10,19 +10,19 @@
 			<form>
 				<div class="form-group">
 					<label>Item Code</label>
-					<input ng-model="vm.getSelectedLabel().ProductId" type="text" class="form-control" disabled>
+					<input ng-model="vm.label.productId" type="text" class="form-control" disabled>
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<input ng-model="vm.getSelectedLabel().ProductName.Title" type="text" class="form-control">
+					<input ng-model="vm.label.productName" type="text" class="form-control">
 				</div>
 				<div class="form-group">
 					<label>Content Count</label>
-					<input ng-model="vm.getSelectedLabel().FrontPanel.FPTextualData.ContentCount" type="number" class="form-control" min="0" step="1">
+					<input ng-model="vm.label.contentCount" type="text" class="form-control">
 				</div>
 				<div class="form-group">
 					<label>Delivery Form</label>
-					<input ng-model="vm.getSelectedLabel().FrontPanel.FPTextualData.DeliveryForm.Text" type="text" class="form-control">
+					<input ng-model="vm.label.deliveryForm" type="text" class="form-control">
 				</div>
 			</form>
 		</div>
