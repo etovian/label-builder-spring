@@ -2,7 +2,7 @@
 
     'use strict';
 
-    function CanvasToolbarDirectiveController ($aside) {
+    function CanvasToolbarDirectiveController ($aside, Label) {
         var templatePath = 'scripts/components/nutracorp/directives/canvas/';
         var vm = this;
         angular.extend(vm, {
@@ -12,6 +12,7 @@
                 if (vm.nutraLabel) {
                     subjectParam = 'Subject=Label%20' + vm.nutraLabel.LabelId;
                 }
+                //TODO: make this email link dynamic
                 return 'mailto:mike.green@stgconsulting.com?' + subjectParam;
             },
             openEditInformationModal: function () {
@@ -20,7 +21,12 @@
                     controller: 'EditInformationController',
                     controllerAs: 'vm',
                     placement: 'right',
-                    size: 'sm'
+                    size: 'sm',
+                    resolve: {
+                        labelEntity: function() {
+                            return vm.nutraLabel;
+                        }
+                    }
                 };
 
                 $aside.open(opts);
@@ -47,6 +53,9 @@
 
                 $aside.open(opts);
             },
+            update: function() {
+                Label.update(vm.nutraLabel);
+            },
             toggleRotation: function () {
                 if (vm.goRenderedLabel.angle === 0) {
                     vm.goRenderedLabel.angle = 270;
@@ -61,6 +70,7 @@
 
         var controller = [
             '$aside',
+            'Label',
             CanvasToolbarDirectiveController
         ];
 
