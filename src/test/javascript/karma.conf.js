@@ -34,12 +34,20 @@ module.exports = function (config) {
             'main/webapp/bower_components/angular-ui-grid/ui-grid.js',
             'main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower
+
+            //nutracorp
+            'main/webapp/scripts/components/nutracorp/directives/nutracorp.directives.module.js',
+
+            //app
             'main/webapp/scripts/app/app.js',
             'main/webapp/scripts/app/**/*.js',
             'main/webapp/scripts/components/**/*.+(js|html)',
+
+            //spec utilities
             'test/javascript/spec/helpers/module.js',
             'test/javascript/spec/helpers/httpBackend.js',
             'test/javascript/**/!(karma.conf|protractor.conf).js'
+
         ],
 
 
@@ -53,12 +61,12 @@ module.exports = function (config) {
         reporters: ['dots', 'jenkins', 'coverage', 'progress'],
 
         jenkinsReporter: {
-            
+
             outputFile: '../target/test-results/karma/TESTS-results.xml'
         },
 
         coverageReporter: {
-            
+
             dir: '../target/test-results/coverage',
             reporters: [
                 {type: 'lcov', subdir: 'report-lcov'}
