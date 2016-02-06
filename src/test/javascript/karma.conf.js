@@ -37,6 +37,7 @@ module.exports = function (config) {
 
             //nutracorp
             'main/webapp/scripts/components/nutracorp/directives/nutracorp.directives.module.js',
+            'main/webapp/scripts/components/nutracorp/services/confirmation.service.js',
 
             //app
             'main/webapp/scripts/app/app.js',

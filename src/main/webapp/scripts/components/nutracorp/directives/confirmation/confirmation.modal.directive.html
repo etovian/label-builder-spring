@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div id="confirmation-modal" class="container-fluid">
     <div class="row">
         <div class="col-md-8">
             <div class="alert alert-danger">
@@ -7,8 +7,8 @@
         </div>
         <div class="col-md-4">
             <div class="btn-group pull-right">
-                <button ng-click="vm.cancel()" class="btn btn-danger">Cancel</button>
-                <button ng-click="vm.confirm()" class="btn btn-default">Confirm</button>
+                <button id="confirmation-modal-cancel" ng-click="vm.cancel()" class="btn btn-danger">Cancel</button>
+                <button id="confirmation-modal-confirm" ng-click="vm.confirm()" class="btn btn-default">Confirm</button>
             </div>
         </div>
     </div>

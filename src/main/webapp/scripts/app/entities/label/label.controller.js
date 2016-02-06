@@ -25,7 +25,7 @@
             },
             deleteSelectedLabel: function() {
                 Label.delete({id: vm.selectedLabelSummary.id})
-                    .$promise.then(vm.search);
+                    .$promise.then(vm.removeSelectedLabelFromGridData);
             },
             gridOptions: {
                 columnDefs: [ //https://github.com/angular-ui/ui-grid/wiki/Defining-columns
@@ -78,6 +78,10 @@
                 $state.go('label.detail', {id: vm.selectedLabelSummary.id});
             },
             productId: null,
+            removeSelectedLabelFromGridData: function() {
+                vm.gridOptions.data = _.without(vm.gridOptions.data, vm.selectedLabelSummary);
+                vm.selectedLabelSummary = null;
+            },
             search: function() {
                 Label.search(vm.searchCriteria, vm.setGridData);
             },

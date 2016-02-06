@@ -15,7 +15,7 @@
                         </div>
                         <input ng-model="vm.productId" type="text" class="form-control"/>
 						<span class="input-group-btn">
-							<button ng-click="vm.createOrOpenByProductId()" class="btn btn-default">
+							<button id="btn-create-or-open" ng-click="vm.createOrOpenByProductId()" class="btn btn-default">
                                 Create / Open
                             </button>
 						</span>
@@ -79,8 +79,8 @@
         </div>
         <div class="col-md-6">
             <div ng-if="vm.selectedLabelSummary" class="btn-group pull-right">
-                <button ng-click="vm.confirmDeleteSelectedLabel()" class="btn btn-default">Delete</button>
-                <button ng-click="vm.navigateToSelectedLabel()" class="btn btn-default">Open</button>
+                <button id="confirm-delete-label" ng-click="vm.confirmDeleteSelectedLabel()" class="btn btn-default">Delete</button>
+                <button id="open-label" ng-click="vm.navigateToSelectedLabel()" class="btn btn-default">Open</button>
             </div>
         </div>
     </div>
