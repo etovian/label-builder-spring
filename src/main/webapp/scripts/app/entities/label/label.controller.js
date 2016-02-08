@@ -11,15 +11,16 @@
             createOrOpenByProductId: function() {
                 Label.getByProductId({productId: vm.productId}, function(existingLabel) {
                     if(existingLabel.id) {
-                        $state.go('label.detail', {id: existingLabel.id});
-                    } else {
-                        var message = 'No label found with product ID ' + vm.productId + '.  Would you like to create one?';
+                        var message = 'A label already exists with product ID ' + vm.productId + '.  Would you like to edit this label?';
                         ConfirmationService.getConfirmation(message)
                             .then(function() {
-                                Label.createByProductId(vm.productId, function(newLabel) {
-                                    $state.go('label.detail', {id: newLabel.id})
-                                })
+                                $state.go('label.detail', {id: existingLabel.id});
                             });
+
+                    } else {
+                        Label.createByProductId(vm.productId, function(newLabel) {
+                            $state.go('label.detail', {id: newLabel.id})
+                        });
                     }
                 });
             },
@@ -83,11 +84,7 @@
                 vm.selectedLabelSummary = null;
             },
             search: function() {
-                Label.search(vm.searchCriteria, vm.setGridData);
-            },
-            searchCriteria: {
-                type: "active",
-                approved: false
+                Label.query({}, vm.setGridData);
             },
             selectedLabelSummary: null,
             setGridData: function(data) {

@@ -13,10 +13,10 @@
                         <div class="input-group-addon">
                             Item Code:
                         </div>
-                        <input ng-model="vm.productId" type="text" class="form-control"/>
+                        <input ng-model="vm.productId" type="text" class="form-control" ng-required="{{true}}"/>
 						<span class="input-group-btn">
 							<button id="btn-create-or-open" ng-click="vm.createOrOpenByProductId()" class="btn btn-default">
-                                Create / Open
+                                Create
                             </button>
 						</span>
                     </div>
@@ -33,28 +33,9 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form class="inline-form pull-right">
-                <div class="form-group">
-                    <label class="radio-inline">
-                        <input
-                            ng-model="vm.searchCriteria.type"
-                            ng-click="vm.search()"
-                            value="active"
-                            type="radio"
-                            name="labelOptions">
-                        Active Labels
-                    </label>
-                    <label class="radio-inline">
-                        <input
-                            ng-model="vm.searchCriteria.type"
-                            ng-click="vm.search()"
-                            value="deleted"
-                            type="radio"
-                            name="labelOptions">
-                        Deleted Labels
-                    </label>
-                </div>
-            </form>
+            <div class="btn-group pull-right">
+                <button ng-click="vm.search()" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -68,16 +49,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="checkbox">
-                <input
-                    ng-model="vm.searchCriteria.approved"
-                    ng-click="vm.search()"
-                    type="checkbox"/>
-                Display Approved Labels
-            </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div ng-if="vm.selectedLabelSummary" class="btn-group pull-right">
                 <button id="confirm-delete-label" ng-click="vm.confirmDeleteSelectedLabel()" class="btn btn-default">Delete</button>
                 <button id="open-label" ng-click="vm.navigateToSelectedLabel()" class="btn btn-default">Open</button>
