@@ -63,8 +63,6 @@ public class LabelResourceIntTest {
     private static final String UPDATED_SERVING_SIZE = "BBBBB";
     private static final String DEFAULT_DELIVERY_FORM = "AAAAA";
     private static final String UPDATED_DELIVERY_FORM = "BBBBB";
-    private static final String DEFAULT_DOSAGE_CONSISTENCY = "AAAAA";
-    private static final String UPDATED_DOSAGE_CONSISTENCY = "BBBBB";
     private static final String DEFAULT_GENERIC_DESCRIPTION = "AAAAA";
     private static final String UPDATED_GENERIC_DESCRIPTION = "BBBBB";
     private static final String DEFAULT_UPC = "AAAAA";
@@ -117,7 +115,6 @@ public class LabelResourceIntTest {
         label.setContentCount(DEFAULT_CONTENT_COUNT);
         label.setServingSize(DEFAULT_SERVING_SIZE);
         label.setDeliveryForm(DEFAULT_DELIVERY_FORM);
-        label.setDosageConsistency(DEFAULT_DOSAGE_CONSISTENCY);
         label.setGenericDescription(DEFAULT_GENERIC_DESCRIPTION);
         label.setUpc(DEFAULT_UPC);
         label.setWarning(DEFAULT_WARNING);
@@ -151,7 +148,6 @@ public class LabelResourceIntTest {
         assertThat(testLabel.getContentCount()).isEqualTo(DEFAULT_CONTENT_COUNT);
         assertThat(testLabel.getServingSize()).isEqualTo(DEFAULT_SERVING_SIZE);
         assertThat(testLabel.getDeliveryForm()).isEqualTo(DEFAULT_DELIVERY_FORM);
-        assertThat(testLabel.getDosageConsistency()).isEqualTo(DEFAULT_DOSAGE_CONSISTENCY);
         assertThat(testLabel.getGenericDescription()).isEqualTo(DEFAULT_GENERIC_DESCRIPTION);
         assertThat(testLabel.getUpc()).isEqualTo(DEFAULT_UPC);
         assertThat(testLabel.getWarning()).isEqualTo(DEFAULT_WARNING);
@@ -180,7 +176,6 @@ public class LabelResourceIntTest {
                 .andExpect(jsonPath("$.[*].contentCount").value(hasItem(DEFAULT_CONTENT_COUNT.toString())))
                 .andExpect(jsonPath("$.[*].servingSize").value(hasItem(DEFAULT_SERVING_SIZE.toString())))
                 .andExpect(jsonPath("$.[*].deliveryForm").value(hasItem(DEFAULT_DELIVERY_FORM.toString())))
-                .andExpect(jsonPath("$.[*].dosageConsistency").value(hasItem(DEFAULT_DOSAGE_CONSISTENCY.toString())))
                 .andExpect(jsonPath("$.[*].genericDescription").value(hasItem(DEFAULT_GENERIC_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].upc").value(hasItem(DEFAULT_UPC.toString())))
                 .andExpect(jsonPath("$.[*].warning").value(hasItem(DEFAULT_WARNING.toString())))
@@ -209,7 +204,6 @@ public class LabelResourceIntTest {
             .andExpect(jsonPath("$.contentCount").value(DEFAULT_CONTENT_COUNT.toString()))
             .andExpect(jsonPath("$.servingSize").value(DEFAULT_SERVING_SIZE.toString()))
             .andExpect(jsonPath("$.deliveryForm").value(DEFAULT_DELIVERY_FORM.toString()))
-            .andExpect(jsonPath("$.dosageConsistency").value(DEFAULT_DOSAGE_CONSISTENCY.toString()))
             .andExpect(jsonPath("$.genericDescription").value(DEFAULT_GENERIC_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.upc").value(DEFAULT_UPC.toString()))
             .andExpect(jsonPath("$.warning").value(DEFAULT_WARNING.toString()))
@@ -244,7 +238,6 @@ public class LabelResourceIntTest {
         label.setContentCount(UPDATED_CONTENT_COUNT);
         label.setServingSize(UPDATED_SERVING_SIZE);
         label.setDeliveryForm(UPDATED_DELIVERY_FORM);
-        label.setDosageConsistency(UPDATED_DOSAGE_CONSISTENCY);
         label.setGenericDescription(UPDATED_GENERIC_DESCRIPTION);
         label.setUpc(UPDATED_UPC);
         label.setWarning(UPDATED_WARNING);
@@ -270,7 +263,6 @@ public class LabelResourceIntTest {
         assertThat(testLabel.getContentCount()).isEqualTo(UPDATED_CONTENT_COUNT);
         assertThat(testLabel.getServingSize()).isEqualTo(UPDATED_SERVING_SIZE);
         assertThat(testLabel.getDeliveryForm()).isEqualTo(UPDATED_DELIVERY_FORM);
-        assertThat(testLabel.getDosageConsistency()).isEqualTo(UPDATED_DOSAGE_CONSISTENCY);
         assertThat(testLabel.getGenericDescription()).isEqualTo(UPDATED_GENERIC_DESCRIPTION);
         assertThat(testLabel.getUpc()).isEqualTo(UPDATED_UPC);
         assertThat(testLabel.getWarning()).isEqualTo(UPDATED_WARNING);

@@ -32,7 +32,7 @@ public class Label implements Serializable {
     @Column(name = "created")
     private LocalDate created;
 
-    @Column(name = "discussion")
+    @Column(name = "discussion", length = 2000)
     private String discussion;
 
     @Column(name = "product_name")
@@ -47,19 +47,16 @@ public class Label implements Serializable {
     @Column(name = "delivery_form")
     private String deliveryForm;
 
-    @Column(name = "dosage_consistency")
-    private String dosageConsistency;
-
     @Column(name = "generic_description")
     private String genericDescription;
 
     @Column(name = "upc")
     private String upc;
 
-    @Column(name = "warning")
+    @Column(name = "warning", length = 1000)
     private String warning;
 
-    @Column(name = "directions")
+    @Column(name = "directions", length = 1500)
     private String directions;
 
     @Column(name = "refrigerated")
@@ -148,14 +145,6 @@ public class Label implements Serializable {
         this.deliveryForm = deliveryForm;
     }
 
-    public String getDosageConsistency() {
-        return dosageConsistency;
-    }
-
-    public void setDosageConsistency(String dosageConsistency) {
-        this.dosageConsistency = dosageConsistency;
-    }
-
     public String getGenericDescription() {
         return genericDescription;
     }
@@ -237,7 +226,6 @@ public class Label implements Serializable {
             ", contentCount='" + contentCount + "'" +
             ", servingSize='" + servingSize + "'" +
             ", deliveryForm='" + deliveryForm + "'" +
-            ", dosageConsistency='" + dosageConsistency + "'" +
             ", genericDescription='" + genericDescription + "'" +
             ", upc='" + upc + "'" +
             ", warning='" + warning + "'" +

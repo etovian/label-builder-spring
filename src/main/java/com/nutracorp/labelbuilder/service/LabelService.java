@@ -41,7 +41,7 @@ public interface LabelService {
     /**
      *  get a label by product id
      */
-    Label findByProductId(String productId);
+    List<Label> findByProductId(String productId);
 
     /**
      * create a label from a product id

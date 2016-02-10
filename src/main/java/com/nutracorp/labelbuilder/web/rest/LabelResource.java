@@ -112,38 +112,14 @@ public class LabelResource {
     }
 
     /**
-     * GET /labels/json
-     */
-    @RequestMapping(value = "/labels/json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @Secured((AuthoritiesConstants.ADMIN))
-    public ResponseEntity<Void> importJson() {
-        log.debug("importing json label data");
-        try {
-            labelService.importJsonData();
-            return ResponseEntity.ok().build();
-        } catch (Exception ex) {
-            return ResponseEntity.unprocessableEntity().headers(HeaderUtil.createFailureAlert("label", "errorKey", "Could not import data")).build();
-        }
-    }
-
-    /**
      * GET /labels/productId/{productId}
      */
     @RequestMapping(value = "/labels/productId/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     @Secured(AuthoritiesConstants.USER)
-    public ResponseEntity<Label> getLabelByProductId(@PathVariable String productId) {
+    public List<Label> getLabelByProductId(@PathVariable String productId) {
         log.debug("REST request to get label by productId : {}", productId);
-        Label label = labelService.findByProductId(productId);
-        if(label == null) {
-            return ResponseEntity.ok().body(new Label());
-        } else {
-            return Optional.of(label)
-                .map(result -> new ResponseEntity<>(
-                    result,
-                    HttpStatus.OK))
-                .orElse(ResponseEntity.ok(new Label()));
-        }
+        return labelService.findByProductId(productId);
     }
 
     /**

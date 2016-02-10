@@ -96,7 +96,7 @@ public class LabelServiceImpl implements LabelService{
         }
     }
 
-    public Label findByProductId(String productId) {
+    public List<Label> findByProductId(String productId) {
         return labelRepository.findByProductId(productId);
     }
 

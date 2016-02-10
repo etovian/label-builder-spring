@@ -2,34 +2,33 @@
 
 describe('Controller Tests', function() {
 
-    describe('Label Detail Controller', function() {
+    describe('Constant Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockLabel, MockConstants;
+        var MockEntity, MockConstant;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockLabel = jasmine.createSpy('MockLabel');
-            MockConstants = jasmine.createSpy('MockConstants');
+            MockConstant = jasmine.createSpy('MockConstant');
+            
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
-                'Label': MockLabel,
-                'constants': MockConstants
+                'Constant': MockConstant
             };
             createController = function() {
-                $injector.get('$controller')("LabelDetailController", locals);
+                $injector.get('$controller')("ConstantDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'labelbuilderApp:labelUpdate';
+                var eventType = 'labelbuilderApp:constantUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

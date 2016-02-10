@@ -9,12 +9,13 @@
                     .then(vm.deleteSelectedLabel);
             },
             createOrOpenByProductId: function() {
-                Label.getByProductId({productId: vm.productId}, function(existingLabel) {
-                    if(existingLabel.id) {
+                Label.getByProductId({productId: vm.productId}, function(existingLabels) {
+                    if(existingLabels.length > 0) {
                         var message = 'A label already exists with product ID ' + vm.productId + '.  Would you like to edit this label?';
                         ConfirmationService.getConfirmation(message)
                             .then(function() {
-                                $state.go('label.detail', {id: existingLabel.id});
+                                //TODO: which label should we navigate to?
+                                $state.go('label.detail', {id: existingLabels[0].id});
                             });
 
                     } else {

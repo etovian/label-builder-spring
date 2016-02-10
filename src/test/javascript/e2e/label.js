@@ -84,10 +84,18 @@
 
         it("should filter grid by item code (productId)", function() {
             var firstProductIdCell = element.all(by.css('.ui-grid-row .ui-grid-cell .ui-grid-cell-contents')).first();
-            var productId = firstProductIdCell.getText();
-            filterByProductId(productId);
-            var gridRows = element.all(by.css('.ui-grid-row'));
-            expect(gridRows.count()).toBe(1);
+            firstProductIdCell.getText().then(function(text) {
+                var productId = text;
+                filterByProductId(productId);
+                element.all(by.css('.ui-grid-row')).then(function(rows) {
+                    rows.forEach(function(row) {
+                        row.all(by.css('.ui-grid-cell-contents')).then(function(cells) {
+                            var productIdIndex = 0;
+                            expect(cells[productIdIndex].getText()).toEqual(productId);
+                        });
+                    })
+                });
+            });
         });
 
         it("should filter grid by description (productName)", function() {

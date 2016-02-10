@@ -37,6 +37,9 @@ angular.module('labelbuilderApp')
                 resolve: {
                     entity: ['$stateParams', 'Label', function($stateParams, Label) {
                         return Label.get({id : $stateParams.id});
+                    }],
+                    constants: ['Constant', function(Constant) {
+                        return Constant.query();
                     }]
                 }
             })

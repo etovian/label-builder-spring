@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="michaelgreen (generated)" id="1455054825571-1">
+        <dropColumn columnName="dosage_consistency" tableName="label"/>
+        <modifyDataType tableName="label" columnName="discussion" newDataType="varchar(2000)"/>
+        <modifyDataType tableName="label" columnName="directions" newDataType="varchar(1500)"/>
+        <modifyDataType tableName="label" columnName="warning" newDataType="varchar(1000)"/>
+    </changeSet>
+</databaseChangeLog>

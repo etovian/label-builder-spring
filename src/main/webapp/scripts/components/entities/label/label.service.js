@@ -15,7 +15,7 @@ angular.module('labelbuilderApp')
             'getByProductId': {
                 url: 'api/labels/productId/:productId',
                 method: 'GET',
-                isArray: false
+                isArray: true
             },
             'createByProductId': {
                 url: 'api/labels/productId/',
