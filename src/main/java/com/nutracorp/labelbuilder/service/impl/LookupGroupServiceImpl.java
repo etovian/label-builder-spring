@@ -1,5 +1,6 @@
 package com.nutracorp.labelbuilder.service.impl;
 
+import com.nutracorp.labelbuilder.domain.LookupValue;
 import com.nutracorp.labelbuilder.service.LookupGroupService;
 import com.nutracorp.labelbuilder.domain.LookupGroup;
 import com.nutracorp.labelbuilder.repository.LookupGroupRepository;
@@ -9,8 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Service Implementation for managing LookupGroup.
@@ -20,10 +20,10 @@ import java.util.Optional;
 public class LookupGroupServiceImpl implements LookupGroupService{
 
     private final Logger log = LoggerFactory.getLogger(LookupGroupServiceImpl.class);
-    
+
     @Inject
     private LookupGroupRepository lookupGroupRepository;
-    
+
     /**
      * Save a lookupGroup.
      * @return the persisted entity
@@ -38,7 +38,7 @@ public class LookupGroupServiceImpl implements LookupGroupService{
      *  get all the lookupGroups.
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public List<LookupGroup> findAll() {
         log.debug("Request to get all LookupGroups");
         List<LookupGroup> result = lookupGroupRepository.findAllWithEagerRelationships();
@@ -49,7 +49,7 @@ public class LookupGroupServiceImpl implements LookupGroupService{
      *  get one lookupGroup by id.
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public LookupGroup findOne(Long id) {
         log.debug("Request to get LookupGroup : {}", id);
         LookupGroup lookupGroup = lookupGroupRepository.findOneWithEagerRelationships(id);
@@ -62,5 +62,21 @@ public class LookupGroupServiceImpl implements LookupGroupService{
     public void delete(Long id) {
         log.debug("Request to delete LookupGroup : {}", id);
         lookupGroupRepository.delete(id);
+    }
+
+    /**
+     * get a map of lookup groups
+     */
+    public Map<String, Set<LookupValue>> getGroupMap() {
+
+        Map<String, Set<LookupValue>> map = new HashMap<>();
+        List<LookupGroup> list = lookupGroupRepository.findAll();
+        Iterator<LookupGroup> iterator = list.iterator();
+        while(iterator.hasNext()) {
+            LookupGroup group = iterator.next();
+            map.put(group.getGroupName(), group.getLookupValuess());
+        }
+
+        return map;
     }
 }

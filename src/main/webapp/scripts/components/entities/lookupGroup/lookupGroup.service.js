@@ -11,6 +11,9 @@ angular.module('labelbuilderApp')
                     return data;
                 }
             },
+            'map': {
+                url: 'api/lookupGroups/map'
+            },
             'update': { method:'PUT' }
         });
     });

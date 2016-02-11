@@ -2,6 +2,7 @@ package com.nutracorp.labelbuilder.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.nutracorp.labelbuilder.domain.LookupGroup;
+import com.nutracorp.labelbuilder.domain.LookupValue;
 import com.nutracorp.labelbuilder.service.LookupGroupService;
 import com.nutracorp.labelbuilder.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
@@ -16,7 +17,9 @@ import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing LookupGroup.
@@ -26,10 +29,10 @@ import java.util.Optional;
 public class LookupGroupResource {
 
     private final Logger log = LoggerFactory.getLogger(LookupGroupResource.class);
-        
+
     @Inject
     private LookupGroupService lookupGroupService;
-    
+
     /**
      * POST  /lookupGroups -> Create a new lookupGroup.
      */
@@ -106,5 +109,14 @@ public class LookupGroupResource {
         log.debug("REST request to delete LookupGroup : {}", id);
         lookupGroupService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("lookupGroup", id.toString())).build();
+    }
+
+    /**
+     * get a map of lookup groups
+     */
+    @RequestMapping(value = "/lookupGroups/map", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public Map<String, Set<LookupValue>> getGroupMap() {
+        return lookupGroupService.getGroupMap();
     }
 }
