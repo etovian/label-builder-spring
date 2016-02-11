@@ -20,14 +20,14 @@ public class Constant implements Serializable {
     private Long id;
 
     @Column(name = "constant_name")
-    private String constant_name;
-    
+    private String constantName;
+
     @Column(name = "constant_value")
-    private String constant_value;
-    
+    private String constantValue;
+
     @Column(name = "description")
     private String description;
-    
+
     public Long getId() {
         return id;
     }
@@ -36,26 +36,26 @@ public class Constant implements Serializable {
         this.id = id;
     }
 
-    public String getConstant_name() {
-        return constant_name;
-    }
-    
-    public void setConstant_name(String constant_name) {
-        this.constant_name = constant_name;
+    public String getConstantName() {
+        return constantName;
     }
 
-    public String getConstant_value() {
-        return constant_value;
+    public void setConstantName(String constantName) {
+        this.constantName = constantName;
     }
-    
-    public void setConstant_value(String constant_value) {
-        this.constant_value = constant_value;
+
+    public String getConstantValue() {
+        return constantValue;
+    }
+
+    public void setConstantValue(String constantValue) {
+        this.constantValue = constantValue;
     }
 
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -84,8 +84,8 @@ public class Constant implements Serializable {
     public String toString() {
         return "Constant{" +
             "id=" + id +
-            ", constant_name='" + constant_name + "'" +
-            ", constant_value='" + constant_value + "'" +
+            ", constantName='" + constantName + "'" +
+            ", constantValue='" + constantValue + "'" +
             ", description='" + description + "'" +
             '}';
     }

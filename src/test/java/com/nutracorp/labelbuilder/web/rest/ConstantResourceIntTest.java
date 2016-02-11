@@ -78,8 +78,8 @@ public class ConstantResourceIntTest {
     @Before
     public void initTest() {
         constant = new Constant();
-        constant.setConstant_name(DEFAULT_CONSTANT_NAME);
-        constant.setConstant_value(DEFAULT_CONSTANT_VALUE);
+        constant.setConstantName(DEFAULT_CONSTANT_NAME);
+        constant.setConstantValue(DEFAULT_CONSTANT_VALUE);
         constant.setDescription(DEFAULT_DESCRIPTION);
     }
 
@@ -99,8 +99,8 @@ public class ConstantResourceIntTest {
         List<Constant> constants = constantRepository.findAll();
         assertThat(constants).hasSize(databaseSizeBeforeCreate + 1);
         Constant testConstant = constants.get(constants.size() - 1);
-        assertThat(testConstant.getConstant_name()).isEqualTo(DEFAULT_CONSTANT_NAME);
-        assertThat(testConstant.getConstant_value()).isEqualTo(DEFAULT_CONSTANT_VALUE);
+        assertThat(testConstant.getConstantName()).isEqualTo(DEFAULT_CONSTANT_NAME);
+        assertThat(testConstant.getConstantValue()).isEqualTo(DEFAULT_CONSTANT_VALUE);
         assertThat(testConstant.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
     }
 
@@ -115,8 +115,8 @@ public class ConstantResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(constant.getId().intValue())))
-                .andExpect(jsonPath("$.[*].constant_name").value(hasItem(DEFAULT_CONSTANT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].constant_value").value(hasItem(DEFAULT_CONSTANT_VALUE.toString())))
+                .andExpect(jsonPath("$.[*].constantName").value(hasItem(DEFAULT_CONSTANT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].constantValue").value(hasItem(DEFAULT_CONSTANT_VALUE.toString())))
                 .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
     }
 
@@ -131,8 +131,8 @@ public class ConstantResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(constant.getId().intValue()))
-            .andExpect(jsonPath("$.constant_name").value(DEFAULT_CONSTANT_NAME.toString()))
-            .andExpect(jsonPath("$.constant_value").value(DEFAULT_CONSTANT_VALUE.toString()))
+            .andExpect(jsonPath("$.constantName").value(DEFAULT_CONSTANT_NAME.toString()))
+            .andExpect(jsonPath("$.constantValue").value(DEFAULT_CONSTANT_VALUE.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
     }
 
@@ -153,8 +153,8 @@ public class ConstantResourceIntTest {
 		int databaseSizeBeforeUpdate = constantRepository.findAll().size();
 
         // Update the constant
-        constant.setConstant_name(UPDATED_CONSTANT_NAME);
-        constant.setConstant_value(UPDATED_CONSTANT_VALUE);
+        constant.setConstantName(UPDATED_CONSTANT_NAME);
+        constant.setConstantValue(UPDATED_CONSTANT_VALUE);
         constant.setDescription(UPDATED_DESCRIPTION);
 
         restConstantMockMvc.perform(put("/api/constants")
@@ -166,8 +166,8 @@ public class ConstantResourceIntTest {
         List<Constant> constants = constantRepository.findAll();
         assertThat(constants).hasSize(databaseSizeBeforeUpdate);
         Constant testConstant = constants.get(constants.size() - 1);
-        assertThat(testConstant.getConstant_name()).isEqualTo(UPDATED_CONSTANT_NAME);
-        assertThat(testConstant.getConstant_value()).isEqualTo(UPDATED_CONSTANT_VALUE);
+        assertThat(testConstant.getConstantName()).isEqualTo(UPDATED_CONSTANT_NAME);
+        assertThat(testConstant.getConstantValue()).isEqualTo(UPDATED_CONSTANT_VALUE);
         assertThat(testConstant.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
     }
 

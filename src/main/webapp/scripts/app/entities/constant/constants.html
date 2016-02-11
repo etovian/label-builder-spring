@@ -28,8 +28,8 @@
             <tbody>
                 <tr ng-repeat="constant in vm.constants track by constant.id">
                     <td><a ui-sref="constant.detail({id:constant.id})">{{constant.id}}</a></td>
-                    <td>{{constant.constant_name}}</td>
-                    <td>{{constant.constant_value}}</td>
+                    <td>{{constant.constantName}}</td>
+                    <td>{{constant.constantValue}}</td>
                     <td>{{constant.description}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

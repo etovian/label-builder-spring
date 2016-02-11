@@ -1,0 +1,286 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myDieLabel">Create or edit a Die</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="die.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_brandCode">BrandCode</label>
+            <input type="text" class="form-control" name="brandCode" id="field_brandCode"
+                    ng-model="die.brandCode"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dieName">DieName</label>
+            <input type="text" class="form-control" name="dieName" id="field_dieName"
+                    ng-model="die.dieName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_overallWidth">OverallWidth</label>
+            <input type="number" class="form-control" name="overallWidth" id="field_overallWidth"
+                    ng-model="die.overallWidth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_overallHeight">OverallHeight</label>
+            <input type="number" class="form-control" name="overallHeight" id="field_overallHeight"
+                    ng-model="die.overallHeight"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bpRotation">BpRotation</label>
+            <input type="number" class="form-control" name="bpRotation" id="field_bpRotation"
+                    ng-model="die.bpRotation"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fpPanelImageWidth">FpPanelImageWidth</label>
+            <input type="number" class="form-control" name="fpPanelImageWidth" id="field_fpPanelImageWidth"
+                    ng-model="die.fpPanelImageWidth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fpImageHeight">FpImageHeight</label>
+            <input type="number" class="form-control" name="fpImageHeight" id="field_fpImageHeight"
+                    ng-model="die.fpImageHeight"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_hasBorder">HasBorder</label>
+            <input type="checkbox" class="form-control" name="hasBorder" id="field_hasBorder"
+                    ng-model="die.hasBorder"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_borderWidth">BorderWidth</label>
+            <input type="number" class="form-control" name="borderWidth" id="field_borderWidth"
+                    ng-model="die.borderWidth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_borderTopInset">BorderTopInset</label>
+            <input type="number" class="form-control" name="borderTopInset" id="field_borderTopInset"
+                    ng-model="die.borderTopInset"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_borderLeftInset">BorderLeftInset</label>
+            <input type="number" class="form-control" name="borderLeftInset" id="field_borderLeftInset"
+                    ng-model="die.borderLeftInset"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_borderRightInset">BorderRightInset</label>
+            <input type="number" class="form-control" name="borderRightInset" id="field_borderRightInset"
+                    ng-model="die.borderRightInset"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bpMarginTop">BpMarginTop</label>
+            <input type="number" class="form-control" name="bpMarginTop" id="field_bpMarginTop"
+                    ng-model="die.bpMarginTop"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bpMarginLeft">BpMarginLeft</label>
+            <input type="number" class="form-control" name="bpMarginLeft" id="field_bpMarginLeft"
+                    ng-model="die.bpMarginLeft"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bpMarginRight">BpMarginRight</label>
+            <input type="number" class="form-control" name="bpMarginRight" id="field_bpMarginRight"
+                    ng-model="die.bpMarginRight"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_supFactAps">SupFactAps</label>
+            <input type="number" class="form-control" name="supFactAps" id="field_supFactAps"
+                    ng-model="die.supFactAps"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_supFactDv">SupFactDv</label>
+            <input type="number" class="form-control" name="supFactDv" id="field_supFactDv"
+                    ng-model="die.supFactDv"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nutFactDv">NutFactDv</label>
+            <input type="number" class="form-control" name="nutFactDv" id="field_nutFactDv"
+                    ng-model="die.nutFactDv"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_mfgInfoFontSize">MfgInfoFontSize</label>
+            <input type="number" class="form-control" name="mfgInfoFontSize" id="field_mfgInfoFontSize"
+                    ng-model="die.mfgInfoFontSize"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_useByFontSize">UseByFontSize</label>
+            <input type="number" class="form-control" name="useByFontSize" id="field_useByFontSize"
+                    ng-model="die.useByFontSize"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastModified">LastModified</label>
+            <input id="field_lastModified" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="die.lastModified" is-open="datePickerForLastModified.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForLastModifiedOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fpTopBumpHeight">FpTopBumpHeight</label>
+            <input type="number" class="form-control" name="fpTopBumpHeight" id="field_fpTopBumpHeight"
+                    ng-model="die.fpTopBumpHeight"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_supFactApsDataInset">SupFactApsDataInset</label>
+            <input type="number" class="form-control" name="supFactApsDataInset" id="field_supFactApsDataInset"
+                    ng-model="die.supFactApsDataInset"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_mfgInfoDisplayFormat">MfgInfoDisplayFormat</label>
+            <input type="text" class="form-control" name="mfgInfoDisplayFormat" id="field_mfgInfoDisplayFormat"
+                    ng-model="die.mfgInfoDisplayFormat"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_textAlignment">TextAlignment</label>
+            <input type="text" class="form-control" name="textAlignment" id="field_textAlignment"
+                    ng-model="die.textAlignment"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_upcFontSize">UpcFontSize</label>
+            <input type="number" class="form-control" name="upcFontSize" id="field_upcFontSize"
+                    ng-model="die.upcFontSize"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_hasMiniFactsBox">HasMiniFactsBox</label>
+            <input type="checkbox" class="form-control" name="hasMiniFactsBox" id="field_hasMiniFactsBox"
+                    ng-model="die.hasMiniFactsBox"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nutFactsAps">NutFactsAps</label>
+            <input type="number" class="form-control" name="nutFactsAps" id="field_nutFactsAps"
+                    ng-model="die.nutFactsAps"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_peelOffPanelRotation">PeelOffPanelRotation</label>
+            <input type="number" class="form-control" name="peelOffPanelRotation" id="field_peelOffPanelRotation"
+                    ng-model="die.peelOffPanelRotation"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_peelOffMarginTop">PeelOffMarginTop</label>
+            <input type="number" class="form-control" name="peelOffMarginTop" id="field_peelOffMarginTop"
+                    ng-model="die.peelOffMarginTop"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_peelOffMarginLeft">PeelOffMarginLeft</label>
+            <input type="number" class="form-control" name="peelOffMarginLeft" id="field_peelOffMarginLeft"
+                    ng-model="die.peelOffMarginLeft"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_peelOffMarginRight">PeelOffMarginRight</label>
+            <input type="number" class="form-control" name="peelOffMarginRight" id="field_peelOffMarginRight"
+                    ng-model="die.peelOffMarginRight"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_peelOffMarginBottom">PeelOffMarginBottom</label>
+            <input type="number" class="form-control" name="peelOffMarginBottom" id="field_peelOffMarginBottom"
+                    ng-model="die.peelOffMarginBottom"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_allowPeelOff">AllowPeelOff</label>
+            <input type="checkbox" class="form-control" name="allowPeelOff" id="field_allowPeelOff"
+                    ng-model="die.allowPeelOff"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bpDividerMargin">BpDividerMargin</label>
+            <input type="number" class="form-control" name="bpDividerMargin" id="field_bpDividerMargin"
+                    ng-model="die.bpDividerMargin"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_columnDividerMargin">ColumnDividerMargin</label>
+            <input type="number" class="form-control" name="columnDividerMargin" id="field_columnDividerMargin"
+                    ng-model="die.columnDividerMargin"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_subNutritionalSeparators">SubNutritionalSeparators</label>
+            <input type="checkbox" class="form-control" name="subNutritionalSeparators" id="field_subNutritionalSeparators"
+                    ng-model="die.subNutritionalSeparators"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_calorieComparisonLowWidth">CalorieComparisonLowWidth</label>
+            <input type="number" class="form-control" name="calorieComparisonLowWidth" id="field_calorieComparisonLowWidth"
+                    ng-model="die.calorieComparisonLowWidth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_calorieComparisonHighWidth">CalorieComparisonHighWidth</label>
+            <input type="number" class="form-control" name="calorieComparisonHighWidth" id="field_calorieComparisonHighWidth"
+                    ng-model="die.calorieComparisonHighWidth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_calorieComparisonLtWidth">CalorieComparisonLtWidth</label>
+            <input type="number" class="form-control" name="calorieComparisonLtWidth" id="field_calorieComparisonLtWidth"
+                    ng-model="die.calorieComparisonLtWidth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_bpMarginBottom">BpMarginBottom</label>
+            <input type="number" class="form-control" name="bpMarginBottom" id="field_bpMarginBottom"
+                    ng-model="die.bpMarginBottom"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_peelOffGlueAllowance">PeelOffGlueAllowance</label>
+            <input type="number" class="form-control" name="peelOffGlueAllowance" id="field_peelOffGlueAllowance"
+                    ng-model="die.peelOffGlueAllowance"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dataOnly">DataOnly</label>
+            <input type="checkbox" class="form-control" name="dataOnly" id="field_dataOnly"
+                    ng-model="die.dataOnly"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

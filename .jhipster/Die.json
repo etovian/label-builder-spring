@@ -1,0 +1,224 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "brandCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "dieName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "overallWidth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "overallHeight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "bpRotation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "fpPanelImageWidth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "fpImageHeight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "hasBorder",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "borderWidth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "borderTopInset",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "borderLeftInset",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "borderRightInset",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "bpMarginTop",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "bpMarginLeft",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "bpMarginRight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "supFactAps",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "supFactDv",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "nutFactDv",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "mfgInfoFontSize",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 20,
+            "fieldName": "useByFontSize",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 21,
+            "fieldName": "lastModified",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 22,
+            "fieldName": "fpTopBumpHeight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 23,
+            "fieldName": "supFactApsDataInset",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 24,
+            "fieldName": "mfgInfoDisplayFormat",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 25,
+            "fieldName": "textAlignment",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 26,
+            "fieldName": "upcFontSize",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 27,
+            "fieldName": "hasMiniFactsBox",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 28,
+            "fieldName": "nutFactsAps",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 29,
+            "fieldName": "peelOffPanelRotation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldId": 30,
+            "fieldName": "peelOffMarginTop",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 31,
+            "fieldName": "peelOffMarginLeft",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 32,
+            "fieldName": "peelOffMarginRight",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 33,
+            "fieldName": "peelOffMarginBottom",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 34,
+            "fieldName": "allowPeelOff",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 35,
+            "fieldName": "bpDividerMargin",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 36,
+            "fieldName": "columnDividerMargin",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 37,
+            "fieldName": "subNutritionalSeparators",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 38,
+            "fieldName": "calorieComparisonLowWidth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 39,
+            "fieldName": "calorieComparisonHighWidth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 40,
+            "fieldName": "calorieComparisonLtWidth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 41,
+            "fieldName": "bpMarginBottom",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 42,
+            "fieldName": "peelOffGlueAllowance",
+            "fieldType": "Float"
+        },
+        {
+            "fieldId": 43,
+            "fieldName": "dataOnly",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20160210175238",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "no"
+}

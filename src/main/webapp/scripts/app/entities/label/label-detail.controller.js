@@ -5,7 +5,8 @@
     function LabelDetailController($scope, $rootScope, $stateParams, entity, Label, constants) {
 
         var vm = angular.extend(this, {
-            label: entity
+            label: entity,
+            constants: constants
         });
 
         //TODO: not exactly sure why this is necessary, but removing it breaks a test

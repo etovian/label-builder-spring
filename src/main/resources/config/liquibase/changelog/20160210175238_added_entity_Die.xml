@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Die.
+    -->
+    <changeSet id="20160210175238" author="jhipster">
+        <createTable tableName="die">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="brand_code" type="varchar(255)"/>
+            
+            <column name="die_name" type="varchar(255)"/>
+            
+            <column name="overall_width" type="${floatType}"/>
+            
+            <column name="overall_height" type="${floatType}"/>
+            
+            <column name="bp_rotation" type="integer"/>
+            
+            <column name="fp_panel_image_width" type="${floatType}"/>
+            
+            <column name="fp_image_height" type="${floatType}"/>
+            
+            <column name="has_border" type="bit"/>
+            
+            <column name="border_width" type="${floatType}"/>
+            
+            <column name="border_top_inset" type="${floatType}"/>
+            
+            <column name="border_left_inset" type="${floatType}"/>
+            
+            <column name="border_right_inset" type="${floatType}"/>
+            
+            <column name="bp_margin_top" type="${floatType}"/>
+            
+            <column name="bp_margin_left" type="${floatType}"/>
+            
+            <column name="bp_margin_right" type="${floatType}"/>
+            
+            <column name="sup_fact_aps" type="${floatType}"/>
+            
+            <column name="sup_fact_dv" type="${floatType}"/>
+            
+            <column name="nut_fact_dv" type="${floatType}"/>
+            
+            <column name="mfg_info_font_size" type="${floatType}"/>
+            
+            <column name="use_by_font_size" type="${floatType}"/>
+            
+            <column name="last_modified" type="date"/>
+            
+            <column name="fp_top_bump_height" type="${floatType}"/>
+            
+            <column name="sup_fact_aps_data_inset" type="${floatType}"/>
+            
+            <column name="mfg_info_display_format" type="varchar(255)"/>
+            
+            <column name="text_alignment" type="varchar(255)"/>
+            
+            <column name="upc_font_size" type="integer"/>
+            
+            <column name="has_mini_facts_box" type="bit"/>
+            
+            <column name="nut_facts_aps" type="${floatType}"/>
+            
+            <column name="peel_off_panel_rotation" type="integer"/>
+            
+            <column name="peel_off_margin_top" type="${floatType}"/>
+            
+            <column name="peel_off_margin_left" type="${floatType}"/>
+            
+            <column name="peel_off_margin_right" type="${floatType}"/>
+            
+            <column name="peel_off_margin_bottom" type="${floatType}"/>
+            
+            <column name="allow_peel_off" type="bit"/>
+            
+            <column name="bp_divider_margin" type="${floatType}"/>
+            
+            <column name="column_divider_margin" type="${floatType}"/>
+            
+            <column name="sub_nutritional_separators" type="bit"/>
+            
+            <column name="calorie_comparison_low_width" type="${floatType}"/>
+            
+            <column name="calorie_comparison_high_width" type="${floatType}"/>
+            
+            <column name="calorie_comparison_lt_width" type="${floatType}"/>
+            
+            <column name="bp_margin_bottom" type="${floatType}"/>
+            
+            <column name="peel_off_glue_allowance" type="${floatType}"/>
+            
+            <column name="data_only" type="bit"/>
+            
+            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

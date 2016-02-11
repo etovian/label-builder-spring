@@ -139,7 +139,8 @@
 
         return {
             scope: {
-                nutraLabel: '='
+                nutraLabel: '=',
+                labelConstants: '='
             },
             templateUrl: 'scripts/components/nutracorp/directives/canvas/go.canvas.html',
             controller: controller,

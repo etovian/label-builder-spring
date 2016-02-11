@@ -1,0 +1,140 @@
+<div>
+    <h2>Dies</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="die.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                       >Create new Die
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>BrandCode</span></th>
+                    <th><span>DieName</span></th>
+                    <th><span>OverallWidth</span></th>
+                    <th><span>OverallHeight</span></th>
+                    <th><span>BpRotation</span></th>
+                    <th><span>FpPanelImageWidth</span></th>
+                    <th><span>FpImageHeight</span></th>
+                    <th><span>HasBorder</span></th>
+                    <th><span>BorderWidth</span></th>
+                    <th><span>BorderTopInset</span></th>
+                    <th><span>BorderLeftInset</span></th>
+                    <th><span>BorderRightInset</span></th>
+                    <th><span>BpMarginTop</span></th>
+                    <th><span>BpMarginLeft</span></th>
+                    <th><span>BpMarginRight</span></th>
+                    <th><span>SupFactAps</span></th>
+                    <th><span>SupFactDv</span></th>
+                    <th><span>NutFactDv</span></th>
+                    <th><span>MfgInfoFontSize</span></th>
+                    <th><span>UseByFontSize</span></th>
+                    <th><span>LastModified</span></th>
+                    <th><span>FpTopBumpHeight</span></th>
+                    <th><span>SupFactApsDataInset</span></th>
+                    <th><span>MfgInfoDisplayFormat</span></th>
+                    <th><span>TextAlignment</span></th>
+                    <th><span>UpcFontSize</span></th>
+                    <th><span>HasMiniFactsBox</span></th>
+                    <th><span>NutFactsAps</span></th>
+                    <th><span>PeelOffPanelRotation</span></th>
+                    <th><span>PeelOffMarginTop</span></th>
+                    <th><span>PeelOffMarginLeft</span></th>
+                    <th><span>PeelOffMarginRight</span></th>
+                    <th><span>PeelOffMarginBottom</span></th>
+                    <th><span>AllowPeelOff</span></th>
+                    <th><span>BpDividerMargin</span></th>
+                    <th><span>ColumnDividerMargin</span></th>
+                    <th><span>SubNutritionalSeparators</span></th>
+                    <th><span>CalorieComparisonLowWidth</span></th>
+                    <th><span>CalorieComparisonHighWidth</span></th>
+                    <th><span>CalorieComparisonLtWidth</span></th>
+                    <th><span>BpMarginBottom</span></th>
+                    <th><span>PeelOffGlueAllowance</span></th>
+                    <th><span>DataOnly</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="die in dies track by die.id">
+                    <td><a ui-sref="die.detail({id:die.id})">{{die.id}}</a></td>
+                    <td>{{die.brandCode}}</td>
+                    <td>{{die.dieName}}</td>
+                    <td>{{die.overallWidth}}</td>
+                    <td>{{die.overallHeight}}</td>
+                    <td>{{die.bpRotation}}</td>
+                    <td>{{die.fpPanelImageWidth}}</td>
+                    <td>{{die.fpImageHeight}}</td>
+                    <td>{{die.hasBorder}}</td>
+                    <td>{{die.borderWidth}}</td>
+                    <td>{{die.borderTopInset}}</td>
+                    <td>{{die.borderLeftInset}}</td>
+                    <td>{{die.borderRightInset}}</td>
+                    <td>{{die.bpMarginTop}}</td>
+                    <td>{{die.bpMarginLeft}}</td>
+                    <td>{{die.bpMarginRight}}</td>
+                    <td>{{die.supFactAps}}</td>
+                    <td>{{die.supFactDv}}</td>
+                    <td>{{die.nutFactDv}}</td>
+                    <td>{{die.mfgInfoFontSize}}</td>
+                    <td>{{die.useByFontSize}}</td>
+                        <td>{{die.lastModified | date:'mediumDate'}}</td>
+                    <td>{{die.fpTopBumpHeight}}</td>
+                    <td>{{die.supFactApsDataInset}}</td>
+                    <td>{{die.mfgInfoDisplayFormat}}</td>
+                    <td>{{die.textAlignment}}</td>
+                    <td>{{die.upcFontSize}}</td>
+                    <td>{{die.hasMiniFactsBox}}</td>
+                    <td>{{die.nutFactsAps}}</td>
+                    <td>{{die.peelOffPanelRotation}}</td>
+                    <td>{{die.peelOffMarginTop}}</td>
+                    <td>{{die.peelOffMarginLeft}}</td>
+                    <td>{{die.peelOffMarginRight}}</td>
+                    <td>{{die.peelOffMarginBottom}}</td>
+                    <td>{{die.allowPeelOff}}</td>
+                    <td>{{die.bpDividerMargin}}</td>
+                    <td>{{die.columnDividerMargin}}</td>
+                    <td>{{die.subNutritionalSeparators}}</td>
+                    <td>{{die.calorieComparisonLowWidth}}</td>
+                    <td>{{die.calorieComparisonHighWidth}}</td>
+                    <td>{{die.calorieComparisonLtWidth}}</td>
+                    <td>{{die.bpMarginBottom}}</td>
+                    <td>{{die.peelOffGlueAllowance}}</td>
+                    <td>{{die.dataOnly}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="die.detail({id:die.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="die.edit({id:die.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="die.delete({id:die.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
