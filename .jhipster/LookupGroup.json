@@ -1,0 +1,23 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "lookupValues",
+            "otherEntityName": "lookupValue",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "displayValue",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "groupName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160211165903",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "no"
+}
