@@ -39,7 +39,7 @@ angular.module('labelbuilderApp')
                         return Label.get({id : $stateParams.id});
                     }],
                     constants: ['Constant', function(Constant) {
-                        return Constant.query();
+                        return Constant.map();
                     }]
                 }
             })

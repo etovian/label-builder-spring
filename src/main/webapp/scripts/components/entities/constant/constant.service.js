@@ -11,6 +11,9 @@ angular.module('labelbuilderApp')
                     return data;
                 }
             },
+            map: {
+                url: 'api/constants/map'
+            },
             'update': { method:'PUT' }
         });
     });

@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -26,10 +27,10 @@ import java.util.Optional;
 public class ConstantResource {
 
     private final Logger log = LoggerFactory.getLogger(ConstantResource.class);
-        
+
     @Inject
     private ConstantService constantService;
-    
+
     /**
      * POST  /constants -> Create a new constant.
      */
@@ -106,5 +107,14 @@ public class ConstantResource {
         log.debug("REST request to delete Constant : {}", id);
         constantService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("constant", id.toString())).build();
+    }
+
+    /**
+     * get a map of constant values, which will be passed to client as a single JSON Object
+     */
+    @RequestMapping(value = "/constants/map", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public Map<String, Object> getConstantMap() {
+        return constantService.getConstantMap();
     }
 }
